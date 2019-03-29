@@ -47,6 +47,7 @@ public class Rented_car extends javax.swing.JDialog {
         jTable1 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("السيارات المؤجرة");
 
         jPanel1.setBackground(new java.awt.Color(204, 255, 153));
 
