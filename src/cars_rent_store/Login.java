@@ -148,9 +148,9 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void login() {
-        // TODO add your handling code here:
-        String userName = this.username.getText();
-        String password = this.password.getText();
+        // هنا أخذنا اسم المستخدم و كلمةالمرور
+        String userName = this.username.getText();// اسم المستخدم
+        String password = this.password.getText();// كلمة المرور
 
         try {
 

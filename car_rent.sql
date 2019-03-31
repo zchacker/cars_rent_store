@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 27, 2019 at 09:01 AM
+-- Generation Time: Mar 31, 2019 at 07:24 AM
 -- Server version: 5.7.14
 -- PHP Version: 7.0.10
 
@@ -19,6 +19,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `car_rent`
 --
+CREATE DATABASE IF NOT EXISTS `car_rent` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `car_rent`;
 
 -- --------------------------------------------------------
 
@@ -31,6 +33,13 @@ CREATE TABLE `admins` (
   `username` varchar(150) NOT NULL,
   `password` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `admins`
+--
+
+INSERT INTO `admins` (`id`, `username`, `password`) VALUES
+(1, 'ahmed', '123');
 
 -- --------------------------------------------------------
 
@@ -47,6 +56,13 @@ CREATE TABLE `bills` (
   `amount` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `bills`
+--
+
+INSERT INTO `bills` (`id`, `customer_id`, `car_name`, `date`, `rent_days`, `amount`) VALUES
+(1, 1, 'فورد', '2019-03-26', 1, 120);
+
 -- --------------------------------------------------------
 
 --
@@ -60,6 +76,14 @@ CREATE TABLE `cars` (
   `size` varchar(150) NOT NULL,
   `rent_price` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `cars`
+--
+
+INSERT INTO `cars` (`id`, `name`, `model`, `size`, `rent_price`) VALUES
+(1, 'فورد', '2016', 'صغيرة', 120),
+(3, 'موستانج', '2019', 'صغيرة', 350);
 
 -- --------------------------------------------------------
 
@@ -76,6 +100,13 @@ CREATE TABLE `customers` (
   `address` varchar(150) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `customers`
+--
+
+INSERT INTO `customers` (`id`, `name`, `phone`, `id_number`, `id_type`, `address`) VALUES
+(1, 'ahmed adm', '0502735443', '12122', 'بطاقة هوية', 'المدينة المنورة');
+
 -- --------------------------------------------------------
 
 --
@@ -88,6 +119,13 @@ CREATE TABLE `maintenance` (
   `need` varchar(250) NOT NULL,
   `cost` double NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `maintenance`
+--
+
+INSERT INTO `maintenance` (`id`, `car_name`, `need`, `cost`) VALUES
+(1, 'فورد', 'كفرات', 120);
 
 --
 -- Indexes for dumped tables
