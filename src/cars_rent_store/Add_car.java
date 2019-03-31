@@ -160,6 +160,9 @@ public class Add_car extends javax.swing.JDialog {
     }//GEN-LAST:event_jButton1ActionPerformed
     
     private void save_car(){
+        
+        // هنا نأخذ البيانات من المستخدم ثم نخزنها في متغيرات
+        // بعدها نقوم بادخالها في قاعدة البيانات
         String name = this.car_name.getText();
         String model = this.model.getText();
         String size = this.size.getSelectedItem().toString();

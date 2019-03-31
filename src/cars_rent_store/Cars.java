@@ -218,46 +218,55 @@ public class Cars extends javax.swing.JDialog {
     }
     
     private void update_table(){
+        
+        // هذه الدالة تقوم بتحديث المعلومات الموجودة داخل الجدول كلما استدعيناها
         try{
             
-            tableModel = new DefaultTableModel();
+            tableModel = new DefaultTableModel();// هنا نمسح الجدول كاملا
             
+            // هنا اضفنا هيدر الجدول
             tableModel.addColumn("#");
             tableModel.addColumn("اسم السيارة");
             tableModel.addColumn("الموديل");
             tableModel.addColumn("الحجم");
             tableModel.addColumn("سعر الايجار");
             
+            // هنا اتصلنا بقاعدة البيانات لأخذ المعلومات
             String query = "SELECT * FROM cars";
             this.connection = DriverManager.getConnection(db_name, db_user, db_pass);
             Statement state = this.connection.createStatement();
             
             ResultSet results = state.executeQuery(query);
             
+            // هنا نملأ الصفوف بالبيانات
             while(results.next()){
-                Vector row = new Vector(4);
-                row.addElement(results.getString("id"));
+                Vector row = new Vector(4);// هذا نوع خاص من المصفوفات موجود بالجافا يستخدم هنا فقط لملء الجدول بالبيانات وهذه المصفوفة او الكود مأخوذ من موقع جافا
+                row.addElement(results.getString("id"));// اضفنا الخانة الاولى وهي الاي دي
                 row.addElement(results.getString("name"));
                 row.addElement(results.getString("model"));
                 row.addElement(results.getString("size"));
                 row.addElement(results.getString("rent_price"));                
-                tableModel.addRow(row);
+                tableModel.addRow(row);// هنا اضفنا معلومات الصف كاملة للحدول
             }   
             
-            table.setModel(tableModel);
+            table.setModel(tableModel);// الموديل هو عبارة عن بيانات تضاف للجدول بعد ملئه بالبيانات
         }catch(Exception e){
             e.printStackTrace();
         } 
     }
     
     private void fill_table_data(){
+        
+        // هذه الدالة تملئ الجدول بالبيانات
         try{
+            // هنا نسمي الاعمدة ونعطيها اسماء
             tableModel.addColumn("#");
             tableModel.addColumn("اسم السيارة");
             tableModel.addColumn("الموديل");
             tableModel.addColumn("الحجم");
             tableModel.addColumn("سعر الايجار");
             
+            // نتصل بقاعدة البيانات و نجلب معلومات السيارات
             String query = "SELECT * FROM cars";
             this.connection = DriverManager.getConnection(db_name, db_user, db_pass);
             Statement state = this.connection.createStatement();
@@ -265,13 +274,13 @@ public class Cars extends javax.swing.JDialog {
             ResultSet results = state.executeQuery(query);
             
             while(results.next()){
-                Vector row = new Vector(4);
-                row.addElement(results.getString("id"));
-                row.addElement(results.getString("name"));
-                row.addElement(results.getString("model"));
-                row.addElement(results.getString("size"));
-                row.addElement(results.getString("rent_price"));                
-                tableModel.addRow(row);
+                Vector row = new Vector(4);// هذا نوع خاص من المصفوفات موجود بالجافا يستخدم هنا فقط لملء الجدول بالبيانات وهذه المصفوفة او الكود مأخوذ من موقع جافا
+                row.addElement(results.getString("id"));// اضفنا الخانة الاولى وهي الاي دي
+                row.addElement(results.getString("name"));// اضفنا الخانة الثانية وهي الاسم
+                row.addElement(results.getString("model"));// اضفنا الخانة الثالثة وهي الموديل
+                row.addElement(results.getString("size"));// اضفنا الخانة الرابعة وهي الحجم
+                row.addElement(results.getString("rent_price")); // اضفنا الخانة الخامسة وهي سعر الايجار
+                tableModel.addRow(row);// اضفنا الصف للجدول
             }
             
         }catch(Exception e){

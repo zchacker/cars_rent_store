@@ -187,6 +187,7 @@ public class Edit_car extends javax.swing.JDialog {
     } 
     
     private void get_data(String id){
+        // هذه الدالة تقوم بأخذ بيانات السيارة المراد التعديل عليها عن طريق الاي دي
         
         String query = "SELECT * FROM cars where id = "+id;
         
@@ -203,7 +204,7 @@ public class Edit_car extends javax.swing.JDialog {
             String size = results.getString("size");
             double rent_price = results.getDouble("rent_price");
             
-            
+            // بعد اخذ المعلومات من قاعدة البيانات  نقوم بوضعها في الواجهة
             this.car_name.setText(name);
             this.model.setText(model);
             this.price.setText(rent_price+"");
