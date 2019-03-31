@@ -10,7 +10,7 @@
 
 أولا هنا في المستودع اضغط على الزر الاخضر كما هو موضح بالصورة
 
-![Working demo](https://imgur.com/F09H1DX)
+![Working demo](https://imgur.com/F09H1DX.png)
 
 ### استيراد المشروع على نت نتبينز
 
